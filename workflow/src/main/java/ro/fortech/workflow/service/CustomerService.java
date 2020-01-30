@@ -21,10 +21,23 @@ public class CustomerService {
   public List<Customer> getAllCustommers() {
     return customerRepository.findAll();
   }
+
   public void addCustomer(Customer customer) {
     customerRepository.save(customer);
   }
+
   public void delteById(Integer id) {
     customerRepository.deleteById(id);
+  }
+
+  public void updateCustomer(Integer customerId, Customer customer) throws Exception {
+    Optional<Customer> possibleCustomer = customerRepository.findById(customerId);
+    if (possibleCustomer.isPresent()) {
+      customer.setCustomerId(customerId);
+      customerRepository.save(customer);
+    } else {
+      throw new Exception("Didn't find customer with id " + customerId);
+    }
+
   }
 }
