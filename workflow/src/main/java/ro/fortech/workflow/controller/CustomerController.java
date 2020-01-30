@@ -2,6 +2,7 @@ package ro.fortech.workflow.controller;
 
 import java.util.List;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,12 +26,19 @@ public class CustomerController {
   Optional<Customer> getById(@PathVariable Integer id) {
     return customerService.getCustomerById(id);
   }
+
   @GetMapping
-  List<Customer>getAllCustomers(){
+  List<Customer> getAllCustomers() {
     return customerService.getAllCustommers();
   }
+
   @PostMapping
   void addCustomer(Customer customer) {
     customerService.addCustomer(customer);
+  }
+
+  @DeleteMapping("/{customerId}")
+  void deleteCustomer(@PathVariable Integer customerId) {
+    customerService.delteById(customerId);
   }
 }
