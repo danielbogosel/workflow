@@ -18,7 +18,7 @@ public class CustomerService {
     return customerRepository.findById(id);
   }
 
-  public List<Customer> getAllCustommers() {
+  public List<Customer> getAllCustomers() {
     return customerRepository.findAll();
   }
 
@@ -26,7 +26,7 @@ public class CustomerService {
     customerRepository.save(customer);
   }
 
-  public void delteById(Integer id) {
+  public void deleteById(Integer id) {
     customerRepository.deleteById(id);
   }
 

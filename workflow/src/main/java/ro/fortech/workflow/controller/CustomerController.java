@@ -31,7 +31,7 @@ public class CustomerController {
 
   @GetMapping
   List<Customer> getAllCustomers() {
-    return customerService.getAllCustommers();
+    return customerService.getAllCustomers();
   }
 
   @PostMapping
@@ -41,7 +41,7 @@ public class CustomerController {
 
   @DeleteMapping("/{customerId}")
   void deleteCustomer(@PathVariable Integer customerId) {
-    customerService.delteById(customerId);
+    customerService.deleteById(customerId);
   }
 
   @PutMapping
